@@ -9,10 +9,10 @@ description: Flutter Firebase Auth, Social Login, Session Management, and Securi
 
 Al detectar `$auth` o tareas relacionadas con Firebase Auth, OAuth, Google Sign-In, Apple Sign-In, Custom Claims, `flutter_secure_storage` o guardias de navegación:
 
-1. `.agents/skills/flutter-auth/SKILL.md` ← **Directiva principal**
-2. `.agents/skills/flutter-auth/core/commands.md`
-3. `.agents/skills/flutter-auth/core/brain.md`
-4. `.agents/skills/flutter-auth/core/path_map.md`
+1. `.skill/flutter-firebase-auth-agent-skill/SKILL.md` ← **Directiva principal**
+2. `.skill/flutter-firebase-auth-agent-skill/core/commands.md`
+3. `.skill/flutter-firebase-auth-agent-skill/core/brain.md`
+4. `.skill/flutter-firebase-auth-agent-skill/core/path_map.md`
 
 ## Reglas Canónicas de Firebase Auth en Flutter
 

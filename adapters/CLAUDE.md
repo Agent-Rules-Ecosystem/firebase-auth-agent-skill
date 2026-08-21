@@ -1,2 +1,2 @@
 # Claude Adapter - Auth Skill
-Refer to `.agents/skills/flutter-auth/AGENTS.md` and `.agents/skills/flutter-auth/SKILL.md` for Firebase Auth rules.
+Refer to `.skill/flutter-firebase-auth-agent-skill/AGENTS.md` and `.skill/flutter-firebase-auth-agent-skill/SKILL.md` for Firebase Auth rules.

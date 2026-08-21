@@ -49,7 +49,7 @@ graph TD
 ## 📦 Instalación como Submódulo
 
 ```bash
-git submodule add https://github.com/xolotl-hub/flutter-firebase-auth-agent-skill.git .agents/skills/flutter-auth
+git submodule add https://github.com/xolotl-hub/flutter-firebase-auth-agent-skill.git .skill/flutter-firebase-auth-agent-skill
 ```
 
 Para activar en la sesión actual:

@@ -1,2 +1,2 @@
 # GEMINI Adapter - Auth Skill
-When `$auth` is triggered, load `.agents/skills/flutter-auth/AGENTS.md` and `.agents/skills/flutter-auth/SKILL.md`.
+When `$auth` is triggered, load `.skill/flutter-firebase-auth-agent-skill/AGENTS.md` and `.skill/flutter-firebase-auth-agent-skill/SKILL.md`.
