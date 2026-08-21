@@ -1,4 +1,2 @@
-# Flutter Agent Rules adapter
-
-Read and follow `.agents/AGENTS.md` before responding or editing.
-Project state lives in `overview/`. Do not duplicate rules here.
+# Claude Adapter - Auth Skill
+Refer to `.agents/skills/flutter-auth/AGENTS.md` and `.agents/skills/flutter-auth/SKILL.md` for Firebase Auth rules.

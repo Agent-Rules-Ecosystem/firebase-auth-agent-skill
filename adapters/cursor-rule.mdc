@@ -1,7 +1,5 @@
 ---
-description: Flutter Agent Rules bootstrap
-alwaysApply: true
+description: Flutter Firebase Auth Skill Rule for Cursor
+globs: ["*auth*.dart", "firestore.rules", "*login*.dart"]
 ---
-
-Read and follow `.agents/AGENTS.md` before responding or editing.
-Project state lives in `overview/`. Do not duplicate rules here.
+Enforce reactive auth state streams, secure token storage, and repository pattern defined in `.agents/skills/flutter-auth/SKILL.md`.
