@@ -1,8 +1,0 @@
-name: flutter-firebase-auth-agent-skill
-version: 1.0.0
-author: Agent-Rules-Ecosystem
-description: "Firebase Authentication integration with BLoC architecture."
-compatible_rules:
-  - flutter-agent-rules
-dependencies:
-  - flutter-bloc-patterns-agent-skill
