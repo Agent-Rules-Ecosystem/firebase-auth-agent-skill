@@ -49,3 +49,30 @@ service cloud.firestore {
   }
 }
 ```
+
+
+---
+
+## 📝 Persistencia y Salida Activa (`overview/work/skill/`)
+
+Al ejecutar esta skill (mediante `$auth` o `$auth:audit`), es **obligatorio crear o actualizar su reporte activo** dentro del proyecto cliente en la ruta:
+
+`overview/work/skill/flutter-firebase-auth.md`
+
+### Estructura Requerida del Reporte:
+
+```markdown
+# 📋 Registro Activo de Tareas — Flutter Firebase Auth Agent Skill
+
+> **Generado por**: `flutter-firebase-auth-agent-skill` (`$auth:audit`)  
+> **Última actualización**: YYYY-MM-DD  
+
+## 🎯 Tareas Pendientes Accionables
+
+| ID | Tipo | Estado | Resumen | Evidencia/Ruta | Acción Requerida |
+|---|---|---|---|---|---|
+| AUTH-01 | Fix / Refactor | Pendiente | <Resumen breve> | `<ruta:línea>` | <Remediación recomendada> |
+
+## 📝 Observaciones y Detalles de Revisión
+- Detalle técnico, evidencia o contexto extendido proporcionado por la revisión de la skill.
+```
