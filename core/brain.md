@@ -1,12 +1,14 @@
-# 🧠 Engine de Autenticación (Auth Brain)
+# 🧠 Engine de Decisiones Firebase Auth (Auth Brain)
 
-## Matriz de Selección de Autenticación
+## Matriz de Selección de Autenticación & Proveedores
 
-1. **Flujo de Usuario Nuevo (Registro)**:
-   - Crear credencial en Firebase Auth -> Crear documento inicial en Firestore (`/users/{uid}`) -> Emitir `Authenticated` state.
+1. **Usar Google OAuth / Apple Sign-In si**:
+   - Se requiere la menor fricción de registro para usuarios en plataformas móviles o web.
 
-2. **Flujo Anónimo a Usuario Registrado (Account Linking)**:
-   - Preservar UID anónimo -> Vincular credencial Google/Email (`linkWithCredential`) -> Evitar pérdida de datos locales.
+2. **Usar Custom Claims (RBAC) si**:
+   - La aplicación requiere roles administrativos (`admin`, `editor`, `user`) validados a nivel de servidor o Security Rules sin hacer queries extra a la base de datos.
 
-3. **Expiración o Revocación de Sesión**:
-   - `idTokenChanges()` emite `null` -> Disparar inmediatamente redirección a `/login` -> Limpiar caché de la app.
+3. **Estrategia de Persistencia de Tokens**:
+   - **Flutter / Mobile**: Usar `FlutterSecureStorage` (Keychain en iOS, EncryptedSharedPreferences en Android).
+   - **Web SSR (Next.js / SvelteKit)**: Usar `httpOnly` cookies cifradas pasadas a Firebase Admin SDK.
+   - **Web SPA (Vite / React)**: Usar la persistencia nativa indexDB gestionada por `firebase/auth`.

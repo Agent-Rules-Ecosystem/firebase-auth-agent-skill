@@ -1,64 +1,51 @@
-# 🔐 Flutter Firebase Auth Agent Skill
+# 🔥 Firebase Auth Agent Skill
 
-> **Habilidad Especializada en Autenticación Firebase, OAuth, Seguridad y Gestión de Sesiones para aplicaciones Flutter**.
-
-Diseñado para implementar, asegurar y refactorizar flujos de autenticación completos en Flutter con Firebase Auth (Google Sign-In, Apple Sign-In, Email/Password, Anónimo), Firestore RBAC y Flutter Secure Storage.
+> **Skill Transversal** — Autenticación multi-proveedor (OAuth, Google, Apple, Email/Password, Anónimo), Custom Claims (RBAC), Firestore Security Rules e integración multilenguaje (Flutter, Web React/Svelte, Mobile Native, Node/Python).
+> Skill de tipo **Transversal Agnóstica**.
 
 ---
 
 ## 📌 Propósito y Alcance
 
-`flutter-firebase-auth-agent-skill` dota a los agentes de IA de arquitecturas de autenticación seguras y reactivas para Flutter:
-
-1. **🔥 Firebase Auth Lifecycle**: Manejo de streams de estado de autenticación (`authStateChanges`), refresco automático de JWT ID Tokens e intercepción de caducidad.
-2. **🌐 OAuth & Social Sign-In**: Integración nativa de Google Sign-In, Apple Sign-In y credenciales anónimas con vinculación de cuentas (*Account Linking*).
-3. **🛡️ Control de Acceso basado en Roles (RBAC)**: Custom User Claims en Firebase Auth sincronizados con Security Rules de Firestore y Realtime Database.
-4. **🔒 Almacenamiento Seguro de Sesión**: Cifrado local de tokens y metadata del usuario mediante `flutter_secure_storage` con protección biométrica.
-5. **🚦 Guardias de Navegación & Middlewares**: Redirección automática de rutas protegidas y verificación de estado en `go_router` / `auto_route`.
+1. 🔑 **Autenticación Multi-Proveedor:** Patrones y flujos canónicos para Google OAuth, Apple Sign-In, Email/Password, Magic Link y sesión anónima.
+2. 🛡️ **Seguridad & RBAC:** Gestión de Custom Claims, Firestore Security Rules (Reglas de acceso por usuario y rol), y refresco automático de tokens idToken.
+3. 🌐 **Integración Multilenguaje:**
+   - **Flutter / Dart:** `firebase_auth`, `flutter_secure_storage`, `GoRouter` Auth Guards.
+   - **Web (React / Next.js / Svelte):** Client SDK, Server SDK (Admin App), Middleware Auth Guards.
+   - **Backend (Node / Python):** Verificación de idTokens Bearer en endpoints HTTP.
+4. 📋 **Generar** reportes de auditoría activa de configuración de autenticación y reglas de seguridad.
 
 ---
 
-## ⚡ $-Comandos de Auth
+## ⚡ $-Comandos de Firebase Auth
 
 | Comando | Acción | Descripción |
 |---|---|---|
-| `$auth` | **Bootstrap Auth** | Activa la habilidad y escanea la pila actual de autenticación Firebase. |
-| `$auth:init` | **Instalación** | Configura Firebase Auth, Repository y AuthBloc en el proyecto Flutter. |
-| `$auth:social` | **OAuth Integrador** | Implementa credenciales de Google y Apple con gestión de scopes. |
-| `$auth:rbac` | **Roles & Claims** | Configura Custom Claims y reglas de seguridad de Firestore (`request.auth`). |
-| `$auth:audit` | **Auditoría de Sesión** | Audita fugas de tokens, manejo de errores de Auth y persistencia segura. |
-| `$auth:test` | **Pruebas de Auth** | Genera mocks de `FirebaseAuth` y `UserCredential` para pruebas unitarias. |
+| `$firebaseauth` | Bootstrap | Carga la skill y verifica configuración de Firebase Auth. |
+| `$firebaseauth:audit` | Auditoría | Inspecciona almacenamiento de tokens, Security Rules y OAuth Fingerprints. |
+| `$firebaseauth:rules` | Generación | Genera plantilla estricta de Firestore/RTDB Security Rules. |
+| `$learnskill firebase-auth-agent-skill [propuesta]` | Aprendizaje | Registrar mejora para `firebase-auth-agent-skill` en `overview/learning.md` |
+| `$revlearnskill` | Revisión | Clasificar y consolidar propuestas de aprendizaje acumuladas. |
 
 ---
 
-## 🧩 Arquitectura de Autenticación Firebase en Flutter
+## 🧩 Arquitectura de la Skill
 
 ```mermaid
-graph TD
-    UI[Pantalla de Login / Registro] -->|Acción del usuario| AuthBloc[AuthBloc / AuthCubit]
-    AuthBloc -->|Llama método| AuthRepo[Auth Repository]
-    AuthRepo -->|Firebase Auth API| SDK[firebase_auth SDK]
-    SDK -->|Stream de Cambios| AuthRepo
-    AuthRepo -->|Persiste Token Seguro| Storage[FlutterSecureStorage]
-    AuthRepo -->|Estado Actualizado| AuthBloc
-    AuthBloc -->|Guarda Ruta Segura| Router[GoRouter Guard]
+graph LR
+    A[Core Governing Rules .agents/] --> B[firebase-auth-agent-skill .skill/]
+    B --> C[SKILL.md — Directiva]
+    B --> D[core/brain.md — Matriz Provider & Token]
+    B --> E[knowledge/ — Rules, Flutter, Web & Backend]
+    B --> F[resources/ — Plantillas Security Rules]
 ```
 
 ---
 
-## 📦 Instalación como Submódulo Git
-
-> ⚠️ **Regla de Ubicación Obligatoria**: Las skills se instalan **únicamente** dentro del directorio `.skill/` en la raíz del proyecto huésped (a la misma altura que `.agents/`). **NUNCA** se deben colocar dentro de `.agents/`, la cual está reservada exclusivamente para el repositorio oficial de gobernanza (`*-agent-rules`).
+## 📦 Instalación como Submódulo
 
 ```bash
-# 1. Crear el directorio contenedor .skill/ en la raíz del proyecto (si no existe)
-mkdir -p .skill
-
-# 2. Agregar la skill como submódulo Git (usando el nombre completo del repositorio)
-git submodule add https://github.com/xolotl-hub/flutter-firebase-auth-agent-skill.git .skill/flutter-firebase-auth-agent-skill
+git submodule add https://github.com/Agent-Rules-Ecosystem/firebase-auth-agent-skill.git .skill/firebase-auth-agent-skill
 ```
 
-Para activar en la sesión actual:
-```text
-$auth
-```
+Activar con: `$firebaseauth`

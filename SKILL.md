@@ -1,70 +1,47 @@
-# ⚙️ Flutter Firebase Auth Skill Matrix & Directives
+---
+name: firebase-auth-agent-skill
+description: Habilidad Transversal de Firebase Auth: OAuth multi-proveedor, Custom Claims (RBAC), Firestore Security Rules y Token Management para Flutter, Web y Backend.
+---
+
+# ⚙️ Firebase Auth Agent Skill Directives
 
 ## 🎯 Capacidades de la Habilidad
 
 ```mermaid
 graph LR
-    Sub1[Firebase Auth Stream] --> AuthCore[Flutter Auth Skill]
+    Sub1[Firebase Auth Stream] --> AuthCore[Firebase Auth Skill]
     Sub2[Google & Apple OAuth] --> AuthCore
     Sub3[Custom Claims & RBAC] --> AuthCore
-    Sub4[FlutterSecureStorage Vault] --> AuthCore
-    Sub5[GoRouter Auth Guard] --> AuthCore
+    Sub4[Secure Token Vault Storage] --> AuthCore
+    Sub5[Security Rules & Auth Guards] --> AuthCore
 ```
 
 ---
 
-## 📋 Protocolo de Auditoría de Autenticación (`$auth:audit`)
+## 📋 Protocolo de Auditoría de Autenticación (`$firebaseauth:audit`)
 
 1. **Auditoría de Credenciales**:
-   - Validar que las claves OAuth (`SHA-1` y `SHA-256` fingerprints) estén registradas en Firebase Console para Android.
-   - Validar configuración de `Services-Info.plist` y `GoogleService-Info.plist` para iOS.
+   - Validar que las claves OAuth (`SHA-1` y `SHA-256` fingerprints) estén registradas en Firebase Console.
+   - Validar configuración de `Services-Info.plist` y `GoogleService-Info.plist` en clientes móviles.
 2. **Auditoría de Persistencia**:
-   - Verificar si los tokens se almacenan en `SharedPreferences` (Inseguro) o `FlutterSecureStorage` (Seguro).
+   - Verificar que los tokens no se almacenen en texto plano sino en almacenes seguros (`FlutterSecureStorage` en Flutter, `httpOnly cookies` en Web).
 3. **Auditoría de Security Rules**:
    - Auditar que las colecciones de Firestore restrinjan lecturas/escrituras validando `request.auth != null` y `request.auth.uid == userId`.
 
 ---
 
-## 🔒 Plantilla Canónica de Firestore Security Rules (RBAC)
-
-```javascript
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Función auxiliar de autenticación
-    function isAuthenticated() {
-      return request.auth != null;
-    }
-    
-    // Función auxiliar de propiedad de documento
-    function isOwner(userId) {
-      return isAuthenticated() && request.auth.uid == userId;
-    }
-
-    // Regla de perfil de usuario
-    match /users/{userId} {
-      allow read: if isAuthenticated();
-      allow write: if isOwner(userId);
-    }
-  }
-}
-```
-
-
----
-
 ## 📝 Persistencia y Salida Activa (`overview/work/skill/`)
 
-Al ejecutar esta skill (mediante `$auth` o `$auth:audit`), es **obligatorio crear o actualizar su reporte activo** dentro del proyecto cliente en la ruta:
+Al ejecutar esta skill (mediante `$firebaseauth` o `$firebaseauth:audit`), es **obligatorio crear o actualizar su reporte activo** dentro del proyecto cliente en la ruta:
 
-`overview/work/skill/flutter-firebase-auth.md`
+`overview/work/skill/firebase-auth.md`
 
 ### Estructura Requerida del Reporte:
 
 ```markdown
-# 📋 Registro Activo de Tareas — Flutter Firebase Auth Agent Skill
+# 📋 Registro Activo de Tareas — Firebase Auth Agent Skill
 
-> **Generado por**: `flutter-firebase-auth-agent-skill` (`$auth:audit`)  
+> **Generado por**: `firebase-auth-agent-skill` (`$firebaseauth:audit`)  
 > **Última actualización**: YYYY-MM-DD  
 
 ## 🎯 Tareas Pendientes Accionables

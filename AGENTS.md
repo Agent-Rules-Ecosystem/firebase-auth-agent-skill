@@ -1,22 +1,21 @@
 ---
-name: flutter-firebase-auth-agent-skill
-description: Flutter Firebase Auth, Social Login, Session Management, and Security Rules Skill for AI Agents.
+name: firebase-auth-agent-skill
+description: Firebase Auth, Multi-Provider OAuth, Custom Claims, y Security Rules Skill para Agentes IA.
 ---
 
-# 🔐 Flutter Firebase Auth Skill Directive
+# 🔥 Firebase Auth Skill Directive
 
 ## Bootstrap de la Habilidad
 
-Al detectar `$auth` o tareas relacionadas con Firebase Auth, OAuth, Google Sign-In, Apple Sign-In, Custom Claims, `flutter_secure_storage` o guardias de navegación:
+Al detectar `$firebaseauth` o tareas relacionadas con Firebase Auth, OAuth, JWT Verification, Custom Claims o Security Rules:
 
-1. `.skill/flutter-firebase-auth-agent-skill/SKILL.md` ← **Directiva principal**
-2. `.skill/flutter-firebase-auth-agent-skill/core/commands.md`
-3. `.skill/flutter-firebase-auth-agent-skill/core/brain.md`
-4. `.skill/flutter-firebase-auth-agent-skill/core/path_map.md`
+1. `.skill/firebase-auth-agent-skill/SKILL.md` ← **Directiva principal**
+2. `.skill/firebase-auth-agent-skill/core/commands.md`
+3. `.skill/firebase-auth-agent-skill/core/brain.md`
+4. `.skill/firebase-auth-agent-skill/core/path_map.md`
 
-## Reglas Canónicas de Firebase Auth en Flutter
+## Reglas Canónicas de Firebase Auth
 
-- **Manejo Exclusivo por Repositorio**: `FirebaseAuth.instance` NUNCA se invoca directamente en Widgets UI. Toda interacción pasa por `AuthRepository`.
-- **Stream de Sesión Reactiva**: Suscribirse a `userChanges()` o `idTokenChanges()` para detectar revocación de sesión o expiración en tiempo real.
-- **Traducción de Errores Firebase**: Convertir códigos de error (`user-not-found`, `wrong-password`, `invalid-credential`) a mensajes localizados para la UI.
-- **Limpieza Completa en Logout**: Al cerrar sesión, limpiar la caché local de Firestore, tokens en `FlutterSecureStorage` y reiniciar el estado de BLoC.
+- **Manejo Seguro de idToken:** Nunca exponer el `idToken` en logs ni almacenamiento insecure (LocalStorage/SharedPreferences sin cifrar).
+- **Verificación en Backend:** Todo backend Node/Python que reciba un idToken debe verificar la firma usando Firebase Admin SDK.
+- **Principio de Mínimo Privilegio:** Aplicar Firestore Security Rules validando `request.auth.uid` y Custom Claims.
