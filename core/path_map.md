@@ -1,4 +1,4 @@
-# 🗺️ Mapa de Rutas de Autenticación en Flutter
+# 🗺️ Mapa de Rutas de Autenticación Multi-plataforma
 
 - `lib/data/repositories/auth_repository.dart`: Repositorio de Firebase Auth.
 - `lib/logic/blocs/auth/`: BLoC de autenticación y gestión de estado global de usuario.

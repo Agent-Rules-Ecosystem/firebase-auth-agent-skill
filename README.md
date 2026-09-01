@@ -42,10 +42,22 @@ graph LR
 
 ---
 
-## 📦 Instalación como Submódulo
+## ⚡ Quick Start
 
+**1. Instala la skill como submódulo**
 ```bash
-git submodule add https://github.com/Agent-Rules-Ecosystem/firebase-auth-agent-skill.git .skill/firebase-auth-agent-skill
+git submodule add git@github.com:Agent-Rules-Ecosystem/firebase-auth-agent-skill.git .skill/firebase-auth-agent-skill
 ```
 
-Activar con: `$firebaseauth`
+**2. Activa la skill con `$boot`**
+```text
+$boot
+```
+
+**3. Ejecuta el primer comando de la skill**
+```text
+$auth:audit
+```
+
+---
+

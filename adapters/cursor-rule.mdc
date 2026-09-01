@@ -2,4 +2,4 @@
 description: Flutter Firebase Auth Skill Rule for Cursor
 globs: ["*auth*.dart", "firestore.rules", "*login*.dart"]
 ---
-Enforce reactive auth state streams, secure token storage, and repository pattern defined in `.skill/flutter-firebase-auth-agent-skill/SKILL.md`.
+Enforce reactive auth state streams, secure token storage, and repository pattern defined in `.skill/firebase-auth-agent-skill/SKILL.md`.
