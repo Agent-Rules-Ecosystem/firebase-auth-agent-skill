@@ -28,6 +28,8 @@ class AuthRepository {
 
   String _mapErrorCode(String code) {
     switch (code) {
+      case 'invalid-credential':
+        return const AuthFailure('Credenciales inválidas.');
       case 'user-not-found':
         return 'No existe usuario registrado con este correo.';
       case 'wrong-password':

@@ -56,7 +56,7 @@ $boot
 
 **3. Ejecuta el primer comando de la skill**
 ```text
-$auth:audit
+$firebaseauth:audit
 ```
 
 ---

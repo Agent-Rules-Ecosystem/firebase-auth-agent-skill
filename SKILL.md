@@ -22,11 +22,13 @@ graph LR
 
 1. **Auditoría de Credenciales**:
    - Validar que las claves OAuth (`SHA-1` y `SHA-256` fingerprints) estén registradas en Firebase Console.
-   - Validar configuración de `Services-Info.plist` y `GoogleService-Info.plist` en clientes móviles.
+   - Validar configuración de `google-services.json` y `GoogleService-Info.plist` en clientes móviles.
 2. **Auditoría de Persistencia**:
    - Verificar que los tokens no se almacenen en texto plano sino en almacenes seguros (`FlutterSecureStorage` en Flutter, `httpOnly cookies` en Web).
 3. **Auditoría de Security Rules**:
-   - Auditar que las colecciones de Firestore restrinjan lecturas/escrituras validando `request.auth != null` y `request.auth.uid == userId`.
+   - Auditar que las colecciones de Firestore restrinjan lecturas/escrituras validando `request.auth != null` y `request.auth.uid == userId`. Si falta `firestore.rules` en la raíz del proyecto, ofrecer autogenerar una plantilla base segura.
+4. **RBAC Reactivo por ID de Hardware**:
+   - Para terminales o dispositivos compartidos en planta, contemplar suscripción reactiva a roles NoSQL anclada al ID de hardware del cliente para actualizar permisos RBAC en tiempo real sin forzar reautenticación.
 
 ---
 
